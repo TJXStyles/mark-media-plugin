@@ -119,7 +119,7 @@ class Mark_Media_Plugin_Public {
         if(!empty($this->mark_media_options['cdn_provider'])){
           $link = $this->mark_media_options['cdn_provider'];
   			} else {
-       		$link = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js';
+       		$link = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js';
         }
         $try_url = @fopen($link,'r');
         if( $try_url !== false ) {

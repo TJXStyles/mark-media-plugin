@@ -41,6 +41,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 * Tabs for different sections: Start up options, admin options, login settings etc.
 * Load jQuery from CDN (Start up option)
 * Upload a logo to the login screen (login settings)
+* Create a security Checklist
+* Add Typekit (Start up options)
+* Add CMF tags
+* Add Google Anayltics box
 
 
 
