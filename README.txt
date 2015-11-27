@@ -8,21 +8,21 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Plugin for the most commonly used functions used in all Mark Media/New Realms projects.
 
 == Description ==
-
+This plugin should be install for all projects to make developing themes more efficiently.
 
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+Installtion instructions
 
 e.g.
 
 1. Upload `mark-media-plugin.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Place `<?php do_action('mark-media-plugin'); ?>` in your templates
 
 == Frequently Asked Questions ==
 
