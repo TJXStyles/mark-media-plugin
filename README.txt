@@ -46,8 +46,6 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 Ordered list:
 
-1. Some feature
-1. Another feature
-1. Something else about the plugin
+1. Adds the post or page slug as a body class
 
 
