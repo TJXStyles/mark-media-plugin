@@ -11,21 +11,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Plugin for the most commonly used functions used in all Mark Media/New Realms projects.
 
 == Description ==
-This plugin should be install for all projects to make developing themes more efficiently.
+This plugin should be installed for all projects to make developing themes more efficiently.
 
+Features:
+* Adds the page or post slug as a body class prefixed by its type: 'page' or 'post'
 
 == Installation ==
 
-Installtion instructions
-
-e.g.
-
-1. Upload `mark-media-plugin.php` to the `/wp-content/plugins/` directory
+Standard plugin installation steps:
+1. Unzip `mark-media-plugin.zip` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('mark-media-plugin'); ?>` in your templates
-
-== Frequently Asked Questions ==
-
+1. Place `<?php do_action('mark-media-plugin'); ?>` in your templates (Optional)
 
 
 == Screenshots ==
@@ -39,13 +35,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Changelog ==
 
 = 1.0 =
+* Initial version - Add checkbox to enable post/page slug as a body class.
 
-
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Adds the post or page slug as a body class
 
 

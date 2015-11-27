@@ -100,13 +100,12 @@ class Mark_Media_Plugin_Public {
 
 	}
 
-
-
   // Add post/page slug
   public function mark_media_body_class_slug( $classes ) {
 	  if(!empty($this->mark_media_options['body_class_slug'])){
 	    global $post;
-	    if(isset( $post )){
+	    if( is_singular() ) {
+	    //if( isset( $post ) ) {
 	    	$classes[] = $post->post_type . '-' . $post->post_name;
 	    }
 	  }
