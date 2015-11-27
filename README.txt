@@ -37,5 +37,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 = 1.0 =
 * Initial version - Add checkbox to enable post/page slug as a body class.
 
+== TODO ==
+* Tabs for different sections: Start up options, admin options, login settings etc.
+* Load jQuery from CDN (Start up option)
+* Upload a logo to the login screen (login settings)
+
+
 
 

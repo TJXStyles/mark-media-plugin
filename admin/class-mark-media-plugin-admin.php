@@ -138,7 +138,7 @@ class Mark_Media_Plugin_Admin {
 	**/
  	public function options_update() {
  		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
- 
+
  	}
 
 	/**
@@ -147,10 +147,16 @@ class Mark_Media_Plugin_Admin {
 	public function validate($input) {
     // All checkboxes inputs        
     $valid = array();
-    //Cleanup
+    //Start up validation
+    //Add slug to the body
     $valid['body_class_slug'] = (isset($input['body_class_slug']) && !empty($input['body_class_slug'])) ? 1 : 0;
+
+    //customized jquery CDN
+    $valid['jquery_cdn'] = (isset($input['jquery_cdn']) && !empty($input['jquery_cdn'])) ? 1 : 0;
+    $valid['cdn_provider'] = esc_url($input['cdn_provider']);
+
     return $valid;
- }
+ 	}
 
 }
 
