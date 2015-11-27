@@ -100,4 +100,19 @@ class Mark_Media_Plugin_Admin {
 
 	}
 
+
+	public function add_plugin_admin_menu() {
+
+    /*
+     * Add a settings page for this plugin to the Settings menu.
+     */
+    add_options_page( 'WP Cleanup and Base Options Functions Setup', 'WP Cleanup', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page')
+    );
+	}
+
+
+
 }
+
+
+

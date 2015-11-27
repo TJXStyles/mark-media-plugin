@@ -15,9 +15,9 @@
  * @wordpress-plugin
  * Plugin Name:       Mark Media
  * Plugin URI:        markmedia.co
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Custom plugin with the most used functions such as jQuery from CDN, slug class in the body, custom media sizes, Media URl replacement
  * Version:           1.0.0
- * Author:            Jack
+ * Author:            Jack Cooc
  * Author URI:        http://www.jackcooc.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
