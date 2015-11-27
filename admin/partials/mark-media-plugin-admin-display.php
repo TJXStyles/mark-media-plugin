@@ -15,6 +15,7 @@
 <div class="wrap">
 	<h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 	<form method="post" name="cleanup_options" action="options.php">
+	<?php settings_fields($this->plugin_name); ?>
 		<!-- Add slug to the body as a class "page-<slug>" -->
 		<fieldset>
 			<legend class="screen-reader-text"><span><?php _e('Add Post, page or product slug to body class', $this->plugin_name); ?></span></legend>

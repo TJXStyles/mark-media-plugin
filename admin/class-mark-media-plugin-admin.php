@@ -131,8 +131,27 @@ class Mark_Media_Plugin_Admin {
     include_once( 'partials/mark-media-plugin-admin-display.php' );
 	}
 
+	/**
+	*
+	* Add saving/update options
+	*
+	**/
+ 	public function options_update() {
+ 		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+ 
+ 	}
+
+	/**
+	* Add validation and sanitization to the options
+	**/
+	public function validate($input) {
+    // All checkboxes inputs        
+    $valid = array();
+    //Cleanup
+    $valid['body_class_slug'] = (isset($input['body_class_slug']) && !empty($input['body_class_slug'])) ? 1 : 0;
+    return $valid;
+ }
 
 }
-
 
 
