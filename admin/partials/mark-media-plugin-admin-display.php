@@ -25,7 +25,7 @@
 		settings_fields($this->plugin_name);
 		do_settings_sections($this->plugin_name);
 		?>
-		<!-- Add slug to the body as a class "page-<slug>" -->
+		<!-- Add slug to the body as a class "page-<slug>" -->		
 		<fieldset>
 			<legend class="screen-reader-text"><span><?php _e('Add Post, page or product slug to body class', $this->plugin_name); ?></span></legend>
 			<label for="<?php echo $this->plugin_name; ?>-body_class_slug">
@@ -33,6 +33,6 @@
 				<span><?php esc_attr_e('Add Post slug to body class', $this->plugin_name); ?></span>
 			</label>
 		</fieldset>
-		<?php submit_button('Save Changes', 'primary','submit', TRUE); ?>
+		<?php submit_button(__('Save Changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 	</form>
 </div>
