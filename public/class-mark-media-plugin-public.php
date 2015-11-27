@@ -51,7 +51,7 @@ class Mark_Media_Plugin_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
+		 $this->mark_media_options = get_option($this->plugin_name);
 	}
 
 	/**
@@ -99,5 +99,19 @@ class Mark_Media_Plugin_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mark-media-plugin-public.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+
+
+  // Add post/page slug
+  public function mark_media_body_class_slug( $classes ) {
+	  if(!empty($this->mark_media_options['body_class_slug'])){
+	    global $post;
+	    if(isset( $post )){
+	    	$classes[] = $post->post_type . '-' . $post->post_name;
+	    }
+	  }
+   	return $classes;
+  }
+// Add Action is under includes/class-mark-media-plugin.php
 
 }

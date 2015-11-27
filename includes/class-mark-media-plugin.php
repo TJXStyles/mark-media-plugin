@@ -182,6 +182,9 @@ class Mark_Media_Plugin {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+		//Add action
+		$this->loader->add_filter( 'body_class', $plugin_public, 'mark_media_body_class_slug' );
+
 	}
 
 	/**
