@@ -111,6 +111,23 @@ class Mark_Media_Plugin_Public {
 	  }
    	return $classes;
   }
-// Add Action is under includes/class-mark-media-plugin.php
 
+  // Load jQuery from CDN if available
+  public function mark_media_cdn_jquery(){
+  	if(!empty($this->mark_media_options['jquery_cdn'])){
+	    if(!is_admin()){
+        if(!empty($this->mark_media_options['cdn_provider'])){
+          $link = $this->mark_media_options['cdn_provider'];
+  			} else {
+       		$link = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js';
+        }
+        $try_url = @fopen($link,'r');
+        if( $try_url !== false ) {
+        	wp_deregister_script( 'jquery' );
+          wp_register_script('jquery', $link, array(), null, false);
+        }
+      }
+    }
+  }
+// Add Action is under includes/class-mark-media-plugin.php
 }
