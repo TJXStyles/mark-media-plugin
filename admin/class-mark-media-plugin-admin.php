@@ -154,6 +154,8 @@ class Mark_Media_Plugin_Admin {
     //customized jquery CDN
     $valid['jquery_cdn'] = (isset($input['jquery_cdn']) && !empty($input['jquery_cdn'])) ? 1 : 0;
     $valid['cdn_provider'] = esc_url($input['cdn_provider']);
+    $valid['cmf_check'] = (isset($input['cmf_check']) && !empty($input['cmf_check'])) ? 1 : 0;
+    $valid['cmf_tag'] = sanitize_text_field($input['cmf_tag']);
 
     return $valid;
  	}

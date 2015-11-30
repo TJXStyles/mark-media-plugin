@@ -129,5 +129,13 @@ class Mark_Media_Plugin_Public {
       }
     }
   }
+
+	public function mark_media_cmf_tag( $link ) {
+		if(!empty($this->mark_media_options['cmf_check'])) {
+			$link = $this->mark_media_options['cmf_tag'];
+		}
+	  return $link;
+	}
+
 // Add Action is under includes/class-mark-media-plugin.php
 }

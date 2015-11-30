@@ -28,6 +28,8 @@
 		$body_class_slug = $options['body_class_slug'];
     $jquery_cdn = $options['jquery_cdn'];
     $cdn_provider = $options['cdn_provider'];
+    $cmf_check = $options['cmf_check'];
+    $cmf_tag = $options['cmf_tag'];
 		?>
 		<?php
 		settings_fields($this->plugin_name);
@@ -54,6 +56,24 @@
 				<input type="url" class="large-text" id="<?php echo $this->plugin_name;?>-cdn_provider" name="<?php echo $this->plugin_name;?>[cdn_provider]" value="<?php if(!empty($cdn_provider)) echo $cdn_provider;?>" placeholder="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
 			</fieldset>
 		</fieldset>
+		<fieldset>
+
+		<!-- CMF Tag -->
+		<fieldset>
+			<legend class="screen-reader-text"><span><?php _e('Add CMF Tag', $this->plugin_name);?></span></legend>
+			<label for="<?php echo $this->plugin_name;?>-cmf_check">
+				<input type="checkbox"  id="<?php echo $this->plugin_name;?>-cmf_check" name="<?php echo $this->plugin_name;?>[cmf_check]" value="1" <?php checked($cmf_check,1);?>/>
+				<span><?php esc_attr_e('Add a CMF Tag', $this->plugin_name);?></span>
+			</label>
+			<fieldset class="<?php if(1 != $cmf_check) echo 'hidden';?>">
+				<p><small>Add a CMF Tag here</p>
+				<legend class="screen-reader-text"><span><?php _e('Add CMF Code', $this->plugin_name);?></span></legend>
+				<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-cmf_tag" name="<?php echo $this->plugin_name;?>[cmf_tag]" value=""></textarea>
+			</fieldset>
+		</fieldset>
+
+
+
 		<?php submit_button(__('Save Changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 	</form>
 </div>

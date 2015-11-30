@@ -183,9 +183,10 @@ class Mark_Media_Plugin {
 
 		//Add action for body slug function
 		$this->loader->add_filter( 'body_class', $plugin_public, 'mark_media_body_class_slug' );
-		
+
 		//Add action for custom jquery CDN
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'mark_media_cdn_jquery', PHP_INT_MAX);
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'mark_media_cmf_tag');
 
 	}
 
