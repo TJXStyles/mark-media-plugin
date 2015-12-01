@@ -159,7 +159,7 @@ class Mark_Media_Plugin_Admin {
 
     // $valid['ga_check'] = (isset($input['ga_check']) && !empty($input['ga_check'])) ? 1 : 0;
     $valid['ga_tag'] = sanitize_text_field($input['ga_tag']);
-
+    $valid['typekit'] = $input['typekit'];
     return $valid;
  	}
 

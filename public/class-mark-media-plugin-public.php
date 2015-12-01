@@ -150,33 +150,53 @@ class Mark_Media_Plugin_Public {
 	// }
 
 	public function mark_media_add_google_analytics() {
-		$link = $this->mark_media_options['ga_tag'];
-		$string = strval($link);
-		$analytics = "<script type='text/javascript'>
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount','" . $string . "']);
-		_gaq.push(['_setDomainName', 'none']);
-		_gaq.push(['_setAllowLinker', true]);
-		_gaq.push(['_trackPageview']);
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-		</script>";
-	echo $analytics;
+		if(!is_admin()){
+			if(!empty($this->mark_media_options['ga_tag'])){
+				$link = $this->mark_media_options['ga_tag'];
+				$string = strval($link);
+				$analytics = "<script type='text/javascript'>
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount','" . $string . "']);
+				_gaq.push(['_setDomainName', 'none']);
+				_gaq.push(['_setAllowLinker', true]);
+				_gaq.push(['_trackPageview']);
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+				</script>";
+			echo $analytics;
+		} else {
+			echo "Add Google Analytics code";
+		}
+	}
 }
 
-function mark_media_cmf_tag() {
-	$link = $this->mark_media_options['cmf_tag'];
-
-
-echo $cmf;
+public function mark_media_add_cmf_tag() {
+	if(!empty($this->mark_media_options['cmf_tag'])){
+		$link = $this->mark_media_options['cmf_tag'];
+		echo $cmf;
+	} else { ?>
+		<script type='text/javascript'></script>
+	<?php 
+	}
 }
 
-
-
-
-
-// Add Action is under includes/class-mark-media-plugin.php
+public function mark_media_add_typekit() {
+	if(!is_admin()) {
+		if(!empty($this->mark_media_options['typekit'])) { 
+			$link = $this->mark_media_options['typekit'];
+			$matches = array();
+			$pattern = preg_match( '/".*?"/', $link, $matches );
+			$title = $matches[0];
+			?>
+			<script src="<?php echo esc_url($title); ?>"></script>
+			<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<?php
+		} else { ?>
+			<script ="text/javascript" src="http://www.google.com">
+		<?php }
+	}
+}
 }

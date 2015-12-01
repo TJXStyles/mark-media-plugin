@@ -32,6 +32,7 @@
     $cmf_tag = $options['cmf_tag'];
     // $ga_check = $options['ga_check'];
     $ga_tag = $options['ga_tag'];
+    $typekit = $options['typekit'];
 		?>
 		<?php
 		settings_fields($this->plugin_name);
@@ -78,12 +79,17 @@
 		<!-- Google Anaytics -->
 		<fieldset>
 			<legend class="screen-reader-text"><span><?php _e('Add Google Analytics Code', $this->plugin_name);?></span></legend>
-	
-
-				<legend class="screen-reader-text"><span><?php _e('Add Google Analytics Code', $this->plugin_name);?></span></legend>
-				<input type="text" id="<?php echo $this->plugin_name;?>-ga_tag" name="<?php echo $this->plugin_name;?>[ga_tag]" value="<?php if(!empty($ga_tag)) echo esc_attr($ga_tag);?>">
-	
+			<p>Add Google Analytics code here:</p>
+			<input type="text" id="<?php echo $this->plugin_name;?>-ga_tag" name="<?php echo $this->plugin_name;?>[ga_tag]" value="<?php if(!empty($ga_tag)) echo esc_attr($ga_tag);?>">
 		</fieldset>
+
+		<!-- Typekit script -->
+		<fieldset>
+			<legend class="screen-reader-text"><span><?php _e('Add Typekit', $this->plugin_name);?></span></legend>
+			<p>Paste Typekit embed code here</p>
+			<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-typekit" name="<?php echo $this->plugin_name;?>[typekit]"><?php if(!empty($typekit)) echo $typekit;?></textarea>
+		</fieldset>
+
 
 		<?php submit_button(__('Save Changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 	</form>
