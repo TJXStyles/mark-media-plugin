@@ -157,6 +157,9 @@ class Mark_Media_Plugin_Admin {
     $valid['cmf_check'] = (isset($input['cmf_check']) && !empty($input['cmf_check'])) ? 1 : 0;
     $valid['cmf_tag'] = sanitize_text_field($input['cmf_tag']);
 
+    $valid['ga_check'] = (isset($input['ga_check']) && !empty($input['ga_check'])) ? 1 : 0;
+    $valid['ga_tag'] = sanitize_text_field(($input['ga_tag']));
+
     return $valid;
  	}
 

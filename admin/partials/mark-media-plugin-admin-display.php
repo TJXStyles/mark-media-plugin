@@ -30,6 +30,8 @@
     $cdn_provider = $options['cdn_provider'];
     $cmf_check = $options['cmf_check'];
     $cmf_tag = $options['cmf_tag'];
+    $ga_check = $options['ga_check'];
+    $ga_tag = $options['ga_tag'];
 		?>
 		<?php
 		settings_fields($this->plugin_name);
@@ -53,7 +55,7 @@
 			<fieldset class="<?php if(1 != $jquery_cdn) echo 'hidden';?>">
 				<p><small>You can choose your own cdn provider and jQuery version(default will be Google CDN and version 1.11.3)-Recommended CDN are <a href="https://cdnjs.com/libraries/jquery">CDNjs</a>, <a href="https://code.jquery.com/jquery/">jQuery official CDN</a>, <a href="https://developers.google.com/speed/libraries/#jquery">Google CDN</a> and <a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft CDN</a></small></p>
 				<legend class="screen-reader-text"><span><?php _e('Choose your prefered cdn provider', $this->plugin_name);?></span></legend>
-				<input type="url" class="large-text" id="<?php echo $this->plugin_name;?>-cdn_provider" name="<?php echo $this->plugin_name;?>[cdn_provider]" value="<?php if(!empty($cdn_provider)) echo $cdn_provider;?>" placeholder="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+				<input type="url" class="large-text" id="<?php echo $this->plugin_name;?>-cdn_provider" name="<?php echo $this->plugin_name;?>[cdn_provider]" value="<?php if(!empty($cdn_provider)) echo $cdn_provider; ?>" placeholder="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
 			</fieldset>
 		</fieldset>
 		<fieldset>
@@ -63,16 +65,29 @@
 			<legend class="screen-reader-text"><span><?php _e('Add CMF Tag', $this->plugin_name);?></span></legend>
 			<label for="<?php echo $this->plugin_name;?>-cmf_check">
 				<input type="checkbox"  id="<?php echo $this->plugin_name;?>-cmf_check" name="<?php echo $this->plugin_name;?>[cmf_check]" value="1" <?php checked($cmf_check,1);?>/>
-				<span><?php esc_attr_e('Add a CMF Tag', $this->plugin_name);?></span>
+				<span><?php esc_attr_e('Add Google Analytics', $this->plugin_name);?></span>
 			</label>
 			<fieldset class="<?php if(1 != $cmf_check) echo 'hidden';?>">
 				<p><small>Add a CMF Tag here</p>
 				<legend class="screen-reader-text"><span><?php _e('Add CMF Code', $this->plugin_name);?></span></legend>
-				<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-cmf_tag" name="<?php echo $this->plugin_name;?>[cmf_tag]" value=""></textarea>
+				<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-cmf_tag" name="<?php echo $this->plugin_name;?>[cmf_tag]"><?php if(!empty($cmf_tag)) echo esc_attr($cmf_tag);?></textarea>
 			</fieldset>
 		</fieldset>
 
 
+		<!-- Google Anaytics -->
+		<fieldset>
+			<legend class="screen-reader-text"><span><?php _e('Add Google Analytics Code', $this->plugin_name);?></span></legend>
+			<label for="<?php echo $this->plugin_name;?>-cmf_check">
+				<input type="checkbox"  id="<?php echo $this->plugin_name;?>-ga_check" name="<?php echo $this->plugin_name;?>[ga_check]" value="1" <?php checked($ga_check,1);?>/>
+				<span><?php esc_attr_e('Add Google Analytics', $this->plugin_name);?></span>
+			</label>
+			<fieldset class="<?php if(1 != $ga_check) echo 'hidden';?>">
+				<p><small>Add a Google Analytics code here</p>
+				<legend class="screen-reader-text"><span><?php _e('Add Google Analytics Code', $this->plugin_name);?></span></legend>
+				<input type="text" id="<?php echo $this->plugin_name;?>-ga_tag" name="<?php echo $this->plugin_name;?>[ga_tag]" value="<?php if(!empty($ga_tag)) echo esc_attr($ga_tag);?>">
+			</fieldset>
+		</fieldset>
 
 		<?php submit_button(__('Save Changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 	</form>

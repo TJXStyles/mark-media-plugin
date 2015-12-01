@@ -186,8 +186,11 @@ class Mark_Media_Plugin {
 
 		//Add action for custom jquery CDN
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'mark_media_cdn_jquery', PHP_INT_MAX);
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'mark_media_cmf_tag');
+		$this->loader->add_action('wp_footer', $plugin_public, 'mark_media_add_google_analytics');
 
+		//Add action for dashbord cleanup
+		// $this->loader->add_action('admin_init' , $plugin_public, 'mark_media_declutter');
+		// $this->loader->add_action('wp_before_admin_bar_render', $plugin_public, 'mark_media_add_google_analytics');
 	}
 
 	/**
