@@ -63,18 +63,11 @@
 
 		<!-- CMF Tag -->
 		<fieldset>
-			<legend class="screen-reader-text"><span><?php _e('Add CMF Tag', $this->plugin_name);?></span></legend>
-			<label for="<?php echo $this->plugin_name;?>-cmf_check">
-				<input type="checkbox"  id="<?php echo $this->plugin_name;?>-cmf_check" name="<?php echo $this->plugin_name;?>[cmf_check]" value="1" <?php checked($cmf_check,1);?>/>
-				<span><?php esc_attr_e('Add Google Analytics', $this->plugin_name);?></span>
-			</label>
-			<fieldset class="<?php if(1 != $cmf_check) echo 'hidden';?>">
-				<p><small>Add a CMF Tag here</p>
-				<legend class="screen-reader-text"><span><?php _e('Add CMF Code', $this->plugin_name);?></span></legend>
-				<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-cmf_tag" name="<?php echo $this->plugin_name;?>[cmf_tag]"><?php if(!empty($cmf_tag)) echo esc_attr($cmf_tag);?></textarea>
+			<p>Paste CMF Tag here:</p>
+			<legend class="screen-reader-text"><span><?php _e('Add CMF Code', $this->plugin_name);?></span></legend>
+			<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-cmf_tag" name="<?php echo $this->plugin_name;?>[cmf_tag]"><?php if(!empty($cmf_tag)) echo esc_attr($cmf_tag);?></textarea>
 			</fieldset>
 		</fieldset>
-
 
 		<!-- Google Anaytics -->
 		<fieldset>
@@ -86,7 +79,7 @@
 		<!-- Typekit script -->
 		<fieldset>
 			<legend class="screen-reader-text"><span><?php _e('Add Typekit', $this->plugin_name);?></span></legend>
-			<p>Paste Typekit embed code here</p>
+			<p>Paste Typekit embed code here:</p>
 			<textarea cols="80" rows="10" id="<?php echo $this->plugin_name;?>-typekit" name="<?php echo $this->plugin_name;?>[typekit]"><?php if(!empty($typekit)) echo $typekit;?></textarea>
 		</fieldset>
 

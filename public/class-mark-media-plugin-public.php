@@ -149,6 +149,7 @@ class Mark_Media_Plugin_Public {
 	// 	remove_meta_box('dashboard_primary', 'dashboard', 'post_container_1');
 	// }
 
+  //Add Google Analytics
 	public function mark_media_add_google_analytics() {
 		if(!is_admin()){
 			if(!empty($this->mark_media_options['ga_tag'])){
@@ -166,37 +167,30 @@ class Mark_Media_Plugin_Public {
 					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 				})();
 				</script>";
-			echo $analytics;
-		} else {
-			echo "Add Google Analytics code";
+				echo $analytics;
+			}
 		}
 	}
-}
-
-public function mark_media_add_cmf_tag() {
-	if(!empty($this->mark_media_options['cmf_tag'])){
-		$link = $this->mark_media_options['cmf_tag'];
-		echo $cmf;
-	} else { ?>
-		<script type='text/javascript'></script>
-	<?php 
+	//Add CMF
+	public function mark_media_add_cmf_tag() {
+		if(!empty($this->mark_media_options['cmf_tag'])){
+			$link = $this->mark_media_options['cmf_tag'];
+			echo $cmf;
+		}
 	}
-}
-
-public function mark_media_add_typekit() {
-	if(!is_admin()) {
-		if(!empty($this->mark_media_options['typekit'])) { 
-			$link = $this->mark_media_options['typekit'];
-			$matches = array();
-			$pattern = preg_match( '/".*?"/', $link, $matches );
-			$title = $matches[0];
-			?>
-			<script src="<?php echo esc_url($title); ?>"></script>
-			<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<?php
-		} else { ?>
-			<script ="text/javascript" src="http://www.google.com">
-		<?php }
+	//Add typekit
+	public function mark_media_add_typekit() {
+		if(!is_admin()) {
+			if(!empty($this->mark_media_options['typekit'])) { 
+				$link = $this->mark_media_options['typekit'];
+				$matches = array();
+				$pattern = preg_match( '/".*?"/', $link, $matches );
+				$title = $matches[0];
+				?>
+				<script src="<?php echo esc_url($title); ?>"></script>
+				<script>try{Typekit.load({ async: true });}catch(e){}</script>
+			<?php
+			} 
+		}
 	}
-}
 }
