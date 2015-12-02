@@ -188,7 +188,7 @@ class Mark_Media_Plugin {
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'mark_media_cdn_jquery', PHP_INT_MAX);
 		$this->loader->add_action('wp_head', $plugin_public, 'mark_media_add_google_analytics');
 		$this->loader->add_action('wp_head', $plugin_public, 'mark_media_add_typekit');
-		// $this->loader->add_action('wp_head', $plugin_public, 'mark_media_add_cmf_tag');
+		$this->loader->add_action('wp_head', $plugin_public, 'mark_media_add_cmf_tag');
 
 		//Add action for dashbord cleanup
 		// $this->loader->add_action('admin_init' , $plugin_public, 'mark_media_declutter');

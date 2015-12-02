@@ -130,24 +130,35 @@ class Mark_Media_Plugin_Public {
     }
   }
 
-	// public function mark_media_cmf_tag( $link ) {
-	// 	if(!empty($this->mark_media_options['cmf_check'])) {
-	// 		$link = $this->mark_media_options['cmf_tag'];
-	// 		$cmf = "<script type='text/javascript'>
+  //Add CMF tag
+	public function mark_media_add_cmf_tag() {
+		if(!is_admin()){
+			if(!empty($this->mark_media_options['cmf_tag'])){
+				$link = $this->mark_media_options['cmf_tag'];
+				$string = strval($link);
+				?>
+				<!-- Begin comScore Inline Tag 1.1111.15 -->
+				<script type="text/javascript">
+				// <![CDATA[
+				function udm_(a){var b="comScore=",c=document,d=c.cookie,e="",f="indexOf",g="substring",h="length",i=2048,j,k="&ns_",l="&",m,n,o,p,q=window,r=q.encodeURIComponent||escape;if(d[f](b)+1)for(o=0,n=d.split(";"),p=n[h];o<p;o++)m=n[o][f](b),m+1&&(e=l+unescape(n[o][g](m+b[h])));a+=k+"_t="+ +(new Date)+k+"c="+(c.characterSet||c.defaultCharset||"")+"&c8="+r(c.title)+e+"&c7="+r(c.URL)+"&c9="+r(c.referrer),a[h]>i&&a[f](l)>0&&(j=a[g](0,i-8).lastIndexOf(l),a=(a[g](0,j)+k+"cut="+r(a[g](j+1)))[g](0,i)),c.images?(m=new Image,q.ns_p||(ns_p=m),m.src=a):c.write("<","p","><",'img src="',a,'" height="1" width="1" alt="*"',"><","/p",">")}
+				udm_("<?php echo esc_url($string); ?>");
+				// ]]>
+				</script>
+				<noscript><p><img src="http://b.scorecardresearch.com/p?c1=2&c2=14990625" height="1" width="1" alt="*"></p></noscript>
+				<!-- End comScore Inline Tag -->
+				<!-- Begin comScore Inline Tag 1.1111.15 -->
+				<script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/14990625/cs.js"></script>
+				<!-- End comScore Inline Tag -->
+				<?php
+			}
+		}
+	}
 
-	// 						function udm_(a){var b='comScore=',c=document,d=c.cookie,e='',f='indexOf',g='substring',h='length',i=2048,j,k='&ns_',l='&',m,n,o,p,q=window,r=q.encodeURIComponent||escape;if(d[f](b)+1)for(o=0,n=d.split(';''),p=n[h];o<p;o++)m=n[o][f](b),m+1&&(e=l+unescape(n[o][g](m+b[h])));a+=k+"_t="+ +(new Date)+k+"c="+(c.characterSet||c.defaultCharset||"")+"&c8="+r(c.title)+e+"&c7="+r(c.URL)+"&c9="+r(c.referrer),a[h]>i&&a[f](l)>0&&(j=a[g](0,i-8).lastIndexOf(l),a=(a[g](0,j)+k+"cut="+r(a[g](j+1)))[g](0,i)),c.images?(m=new Image,q.ns_p||(ns_p=m),m.src=a):c.write("<","p","><",'img src="',a,'" height="1" width="1" alt="*"',"><","/p",">")}
-	// 						udm_('http://b.scorecardresearch.com/p?c1=2&c2=14990625&application_id=133948&name=133948.mirandas-world.content&ns_site=cmf-fmc&content1=richinteractivemedia&class1=convergent.variety.mandarin&class2=website');
-	// 						</script>
-	// 						<noscript><p><img src='http://b.scorecardresearch.com/p?c1=2&c2=14990625' height='1' width='1' alt='*''></p></noscript>
-	// 						<script type='text/javascript' language='JavaScript1.3' src='http://b.scorecardresearch.com/c2/14990625/cs.js'></script>";
-	// 	}
-	//   return $cmf;
-	// }
 
-	// //declutter to dashboard
-	// public function mark_media_declutter() {
-	// 	remove_meta_box('dashboard_primary', 'dashboard', 'post_container_1');
-	// }
+	//declutter to dashboard
+	public function mark_media_declutter() {
+		remove_meta_box('dashboard_primary', 'dashboard', 'post_container_1');
+	}
 
   //Add Google Analytics
 	public function mark_media_add_google_analytics() {
@@ -171,20 +182,14 @@ class Mark_Media_Plugin_Public {
 			}
 		}
 	}
-	//Add CMF
-	public function mark_media_add_cmf_tag() {
-		if(!empty($this->mark_media_options['cmf_tag'])){
-			$link = $this->mark_media_options['cmf_tag'];
-			echo $cmf;
-		}
-	}
+
 	//Add typekit
 	public function mark_media_add_typekit() {
 		if(!is_admin()) {
 			if(!empty($this->mark_media_options['typekit'])) { 
 				$link = $this->mark_media_options['typekit'];
 				$matches = array();
-				$pattern = preg_match( '/".*?"/', $link, $matches );
+				$pattern = preg_match( '/".*?"/', $link, $matches ); //regex to grab the URL from the script
 				$title = $matches[0];
 				?>
 				<script src="<?php echo esc_url($title); ?>"></script>

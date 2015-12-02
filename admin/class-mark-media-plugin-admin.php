@@ -155,7 +155,7 @@ class Mark_Media_Plugin_Admin {
     $valid['jquery_cdn'] = (isset($input['jquery_cdn']) && !empty($input['jquery_cdn'])) ? 1 : 0;
     $valid['cdn_provider'] = esc_url($input['cdn_provider']);
     $valid['cmf_check'] = (isset($input['cmf_check']) && !empty($input['cmf_check'])) ? 1 : 0;
-    $valid['cmf_tag'] = sanitize_text_field($input['cmf_tag']);
+    $valid['cmf_tag'] = $input['cmf_tag'];
 
     // $valid['ga_check'] = (isset($input['ga_check']) && !empty($input['ga_check'])) ? 1 : 0;
     $valid['ga_tag'] = sanitize_text_field($input['ga_tag']);
